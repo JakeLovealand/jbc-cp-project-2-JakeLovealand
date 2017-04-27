@@ -21,6 +21,8 @@ def help_add(linked, index, value, count):
    else:
       return Pair(linked.first, help_add(linked.rest, index, value, (count+1)))
 def add(linked, index, value):
+   if index < 0 or index > length(linked):
+      raise IndexError()
    return help_add(linked,index,value,0)
 
 
@@ -39,6 +41,8 @@ def length(numlist):
 #get Pair, int --> any type
 #returns the value at a certain index
 def get(linked, index):
+   if index < 0 or index > length(linked):
+      raise IndexError()
    return help_get(linked, index, 0)
 def help_get(linked, index, count):
    if index == count:
@@ -54,6 +58,8 @@ def help_set(linked, index, value, count):
    else:
       return Pair(linked.first, help_set(linked.rest, index, value, (count+1)))
 def set(linked, index, value):
+   if index < 0 or index > length(linked):
+      raise IndexError()
    return help_set(linked,index,value,0)
 
 #remove Pair, int --> Pair
@@ -64,4 +70,6 @@ def help_remove(linked, index, count):
    else:
       return Pair(linked.first, help_remove(linked.rest, index, (count+1)))
 def remove(linked, index):
+   if index < 0 or index > length(linked):
+      raise IndexError()
    return (get(linked, index), help_remove(linked,index,0))

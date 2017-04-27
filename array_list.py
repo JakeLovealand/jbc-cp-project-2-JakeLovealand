@@ -16,6 +16,8 @@ def empty_list():
 #add List, int, any type --> List
 #adds a value at a specific index in a list
 def add(lst,index,value):
+   if index < 0 or index > length(lst):
+      raise IndexError()
    temp1 = lst.value[index]
    temp2 = value
    for i in range(length(lst)+1-index):
@@ -40,17 +42,23 @@ def length(lst):
 #get List,int --> value
 #returns the value at a given index
 def get(lst,index):
+   if index < 0 or index > length(lst):
+      raise IndexError()
    return lst.value[index]
 
 #set List,int,any type --> List
 #sets a given index in a List to a given value
 def set(lst,index,value):
+   if index < 0 or index > length(lst):
+      raise IndexError()
    lst.value[index] = value
    return lst
 
 #remove List, int --> List
 #removes the item at a given index
 def remove(lst,index):
+   if index < 0 or index > length(lst):
+      raise IndexError()
    for i in range(length(lst)-index):
       lst.value[index+i] = lst.value[index+i+1]
    lst.size -= 1

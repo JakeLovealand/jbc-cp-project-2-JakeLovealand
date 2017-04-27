@@ -24,17 +24,33 @@ class TestList(unittest.TestCase):
       l1 = Pair(1,Pair(2,Pair(4,None)))
       self.assertEqual(add(l1,2,3),Pair(1,Pair(2,Pair(3,Pair(4,None)))))
 
+   def test_add_err(self):
+      l1 = Pair(1,Pair(2,None))
+      self.assertRaises(IndexError,add,l1,10,2)
+
    def test_get(self):
       l1 = Pair(1,Pair(2,Pair(4,None)))
       self.assertEqual(get(l1,2),4)
+
+   def test_get_err(self):
+      l1 = Pair(1,Pair(2,None))
+      self.assertRaises(IndexError,get,l1,10)
 
    def test_set(self):
       l1 = Pair(1,Pair(2,Pair(4,None)))
       self.assertEqual(set(l1,2,3),Pair(1,Pair(2,Pair(3,None))))
 
+   def test_set_err(self):
+      l1 = Pair(1,Pair(2,None))
+      self.assertRaises(IndexError,set,l1,10,2)
+
    def test_remove(self):
       l1 = Pair(1,Pair(2,Pair(4,None)))
       self.assertEqual(remove(l1,2),(4, Pair(1,Pair(2,None))))
+
+   def test_remove_err(self):
+      l1 = Pair(1,Pair(2,None))
+      self.assertRaises(IndexError,remove,l1,10)
 
    def test_length_mt(self):
       self.assertEqual(length(None),0)
