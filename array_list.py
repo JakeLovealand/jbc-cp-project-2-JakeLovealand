@@ -42,14 +42,14 @@ def length(lst):
 #get List,int --> value
 #returns the value at a given index
 def get(lst,index):
-   if index < 0 or index > length(lst):
+   if index < 0 or index > length(lst) or length(lst) == 0:
       raise IndexError()
    return lst.value[index]
 
 #set List,int,any type --> List
 #sets a given index in a List to a given value
 def set(lst,index,value):
-   if index < 0 or index > length(lst):
+   if index < 0 or index > length(lst) or length(lst) == 0:
       raise IndexError()
    lst.value[index] = value
    return lst
@@ -57,7 +57,7 @@ def set(lst,index,value):
 #remove List, int --> List
 #removes the item at a given index
 def remove(lst,index):
-   if index < 0 or index > length(lst):
+   if index < 0 or index > length(lst) or length(lst) == 0:
       raise IndexError()
    for i in range(length(lst)-index):
       lst.value[index+i] = lst.value[index+i+1]

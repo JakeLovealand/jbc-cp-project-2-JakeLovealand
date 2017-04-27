@@ -28,6 +28,10 @@ class TestList(unittest.TestCase):
       l1 = Pair(1,Pair(2,None))
       self.assertRaises(IndexError,add,l1,10,2)
 
+   def test_add_err_2(self):
+      l1 = Pair(1,Pair(2,None))
+      self.assertRaises(IndexError,add,l1,-1,0)
+
    def test_get(self):
       l1 = Pair(1,Pair(2,Pair(4,None)))
       self.assertEqual(get(l1,2),4)
@@ -35,6 +39,7 @@ class TestList(unittest.TestCase):
    def test_get_err(self):
       l1 = Pair(1,Pair(2,None))
       self.assertRaises(IndexError,get,l1,10)
+      self.assertRaises(IndexError,get,None,0)     
 
    def test_set(self):
       l1 = Pair(1,Pair(2,Pair(4,None)))
