@@ -82,7 +82,7 @@ class TestList(unittest.TestCase):
       l2.value = [1,2,4,5,None,None,None,None,None,None]
       for i in range(5):
          l1 = add(l1,i,i+1)
-      self.assertEqual(remove(l1,2),l2)
+      self.assertEqual(remove(l1,2),(3, l2))
 
    def test_remove_err(self):
       l1 = List(6)

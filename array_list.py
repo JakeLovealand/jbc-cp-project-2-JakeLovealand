@@ -59,7 +59,8 @@ def set(lst,index,value):
 def remove(lst,index):
    if index < 0 or index > length(lst)-1 or length(lst) == 0:
       raise IndexError()
+   value = lst.value[index]
    for i in range(length(lst)-index):
       lst.value[index+i] = lst.value[index+i+1]
    lst.size -= 1
-   return lst
+   return (value, lst)
